@@ -1,0 +1,56 @@
+// Neuen Ordner erstellen: ../weekendpractice/3LC (persönlichen 3 Letter Code einsetzen)
+// Coden + Auskommentieren
+// Save
+// Next challenge
+// ----
+// (Send .cpp via FB, email, Dropbox, GDrive, etc)
+// Pull request on Github (.cpp only)
+
+1) -- Blutalkohol --
+-> 2.12 in Info1 Aufgaben, Seite 7
+
+-> save: [3LETTERCODE]_blutalkohol.cpp
+
+2) -- Basic I/O --
+Write a program to take a person's forum name, age, forum user id (a postive integer equal to or between 1 and 999999). The program should ask for each datum individually, and not go to the next unless the previous was valid. If there is an error, it must prompt again until it is write or the program is halted. The entry "quit" should exit the program at any question.
+
+If all data is entered, it should print a sentence like:
+Code:
+
+You are LaRoza, aged 20 next year you will be 21, with user id 266234, the next user is 266235.
+
+Rules:
+- User name can't begin with spaces, or have no characters in it. It can truncate strings over 20, if needed.
+- Age has to be positive and not 0. It doesn't need a maximum, but you are free to make your program logical.
+- User ID can't be negative or 0. The maximum I require is 999999.
+- Typing "exit" should exit the program gracefully.
+- The prompt should be logical.
+- Most importantly, it must not crash, segfault, lockup, or enter an infinite loop no matter what is entered 
+
+-> save: [3LC]_basic_io.cpp
+
+3) -- Quadratzahlen --
+-> 4.1 in Info1 Aufgaben, Seite 10
+Schreiben Sie ein Programm, das die Quadratzahlen von 1^2 = 1 bis 20^2 = 400 ausgibt.
+
+-> save: [3LC]_quadratzahlen.cpp
+
+4) -- Number Guessing Game --
+- Write a program that will emulate a common guessing game.
+- The game should randomly set a number which the user will have to guess and will get "higher" or "lower" hints as it goes. Only integers will be used for the target number.
+- The target number should be 1 to 100 (although this "game" is harldy a game. Anybody will get it in 7-8 tries without even "guessing", by using logic)
+- The game will end with a note of the win when the correct number is guessed.
+- The program should tell the number of guesses it took to get it as well.
+
+Also:
+- The code should be well formatted.
+- The code layout should be structured and logical.
+- The use of logical design is a big part of this, so keep a consistent format, and use logical variable and function names.
+
+-> save: [3LC]_guessing_game.cpp
+
+5) -- Freier Fall --
+-> 2.8 in Info1 Aufgaben, Seite 7
+Schreiben Sie ein Programm, das die zurückgelegte Strecke und die Geschwin- digkeit nach einer bestimmten Zeit im freien Fall berechnet. Die Zeitdauer ist vom Nutzer zu bestimmen.
+
+-> save: [3LC]_freier_fall.cpp
