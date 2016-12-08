@@ -19,11 +19,45 @@
 // Oct array is 10 bits/ints long
 #define OCTMAX 10
 
-// Function to set whole array to 0
+/*
+	##################
+	# SUP. FUNCTIONS #
+	##################
+*/
+
+// Set all elements in an array to 0
 void null_array(int* array, int max) {
 	for (int i = 0; i < max; i++) {
 		array[i] = 0;
 	}
+}
+
+// Convert integer between 0 - 16 to its hex symbol
+char convert_hex(int input) {
+	
+	if (input >= 0 && input <= 9)
+		return input + 48;
+	 	
+	else if (input >= 10 && input <= 15) 
+		return input + 87;
+
+	else
+		return -1;
+}
+
+// Convert binary/integer into binary/array
+void bin_to_bin_array(int value, int* bin_array) {
+	int i = INTMAX - 1;
+
+	while (value != 0) {
+		bin_array[i] = value % 2;
+		i -= 1;
+		value /= 10;
+	}
+}
+
+int quit() { 
+	return 0;
 }
 
 /* 
@@ -32,7 +66,7 @@ void null_array(int* array, int max) {
 	##################
 */ 
 
-// INPUT: integer
+// INPUT: int
 int get_int() {
 	int z;
 
@@ -58,6 +92,16 @@ int get_oct() {
 
 	printf("Enter oct value: 0o");
 	scanf("%o", &z);
+
+	return z;
+}
+
+// INPUT: char
+char get_char() {
+	char z;
+
+	printf("> ");
+	scanf("%c", &z);
 
 	return z;
 }
@@ -115,6 +159,29 @@ void print_char(char value) {
 	printf("%c\n", value);
 }
 
+// Repeat?
+void repeat() {
+	char choice;
+
+ 	while (1) {
+ 		printf("\nConvert another value? y/n\n> ");
+ 		scanf("%c", &choice);
+
+		if ((choice == 'y') || (choice == 'Y') || (choice == '1')) {
+			break;
+		}
+
+		else if ((choice == 'n') || (choice == 'N') || (choice == '2') || (choice == '0')) {
+			quit();
+		}
+
+		else {
+			printf("Invalid input.");
+		}
+
+	}
+}
+
 /* 
 	##################
 	### CONVERSIONS ##
@@ -159,19 +226,6 @@ int* bin_oct(int* bin_array, int* oct_array) {
 	}
 
 	return oct_array;
-}
-
-// Convert integer between 0 - 16 to its hex symbol
-char convert_hex(int input) {
-	
-	if (input >= 0 && input <= 9)
-		return input + 48;
-	 	
-	else if (input >= 10 && input <= 15) 
-		return input + 87;
-
-	else
-		return -1;
 }
 
 // Bin -> Hex
@@ -222,12 +276,9 @@ int main() {
 	// start var, end var, choice var
 	int svar, evar, choice;
 
-
+	// Start of I/O
 	printf("-- Convert between number systems --\n");
 STARTMAIN:	
-/*	printf("\nSelect a conversion:\n1 - Dec -> Hex\t\t7 - Oct -> Dec\n2 - Dec -> Oct\t\t8 - Oct -> Hex\n3 - Dec -> Bin\t\t9 - Oct -> Bin\n");
-	printf("\n4 - Hex -> Dec\t\t10 - Bin -> Dec\n5 - Hex -> Oct\t\t11 - Bin -> Hex\n6 - Hex -> Bin\t\t12 - Bin -> Oct\n\n0 - Exit\n\n> ");*/
-	
 	printf("\nEnter the corresponding number for your start type:\n");
 	printf("1 - Decimal\n2 - Hexadecimal\n3 - Octal\n4 - Binary\n\n0 - Exit\n\n> ");
 	scanf("%d", &choice);
@@ -254,7 +305,6 @@ STARTMAIN:
 			// Print binary
 			print_bin_array(bin_array);	
 
-			break;
 		}
 
 		// Start: Hexadecimal
@@ -301,7 +351,24 @@ STARTMAIN:
 
 		// Start: Binary
 		case 4: {
-			
+			svar = get_int();
+
+			// Put svar into bin_array
+			bin_to_bin_array(svar, bin_array);
+
+			// Convert/print to dec
+			evar = bin_dec(bin_array, INTMAX, 0);
+			print_int(evar);
+
+			// Convert/print hex
+			bin_hex(bin_array, hex_array);
+			print_hex_array(hex_array); 
+
+			// Convert/print octal
+			bin_oct(bin_array, oct_array);
+			print_oct_array(oct_array);
+
+			break;
 		}
 
 		default: {
