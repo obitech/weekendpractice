@@ -12,13 +12,13 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ ?!@#&()|<>.:=-+*/0123456789
 
 And after a long while you deduce that the display works like this:
 
-    Starting from the left, all rotors (from the current one to the end of the line) flap together until the left-most rotor character is correct.
+Starting from the left, all rotors (from the current one to the end of the line) flap together until the left-most rotor character is correct.
 
-    Then the mechanism advances by 1 rotor to the right...
+Then the mechanism advances by 1 rotor to the right...
 
-    ...REPEAT this rotor procedure until the whole line is updated
+...REPEAT this rotor procedure until the whole line is updated
 
-    ...REPEAT this line procedure from top to bottom until the whole display is updated
+...REPEAT this line procedure from top to bottom until the whole display is updated
 
 ## Example
 
@@ -27,17 +27,17 @@ Consider a flap display with 3 rotors and one 1 line which currently spells CAT
 ###Step 1 (current rotor is 1)
 
     Flap x 1
-    Now line says DBU
+    Now line says "DBU"
 
 ###Step 2 (current rotor is 2)
 
     Flap x 13
-    Now line says DO)
+    Now line says "DO)"
 
 ###Step 3 (current rotor is 3)
 
     Flap x 27
-    Now line says DOG
+    Now line says "DOG"
 
 This can be represented as
 
