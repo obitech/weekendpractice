@@ -58,4 +58,4 @@ result = ["DOG"]
 Given the initial display lines and the rotor moves for each line, determine what the board will say after it has been fully updated.
 
 
-Source:  [dinglemouse's Kata on codewars.com "codewars.com"](https://www.codewars.com/kata/airport-arrivals-slash-departures-number-1)
+Source:  [dinglemouse's Kata on codewars.com](https://www.codewars.com/kata/airport-arrivals-slash-departures-number-1 "codewars.com")
