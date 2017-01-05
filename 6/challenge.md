@@ -6,7 +6,8 @@ You are at the airport staring blankly at the arrivals/departures flap display..
 
 You notice that each flap character is on some kind of a rotor and the order of characters on each rotor is:
 
-```ABCDEFGHIJKLMNOPQRSTUVWXYZ ?!@#&()|<>.:=-+*/0123456789
+```
+ABCDEFGHIJKLMNOPQRSTUVWXYZ ?!@#&()|<>.:=-+*/0123456789
 ```
 
 And after a long while you deduce that the display works like this:
@@ -40,13 +41,15 @@ Consider a flap display with 3 rotors and one 1 line which currently spells CAT
 
 This can be represented as
 
-```lines  // array of strings. Each string is a display line of the initial configuration
+```
+lines  // array of strings. Each string is a display line of the initial configuration
 rotors // array of array-of-rotor-values. Each array-of-rotor-values is applied to the corresponding display line
 result // array of strings. Each string is a display line of the final configuration
 ```
 e.g.
 
-```lines = ["CAT"]
+```
+lines = ["CAT"]
 rotors = [[1,13,27]]
 result = ["DOG"]
 ```

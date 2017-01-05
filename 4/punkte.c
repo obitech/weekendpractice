@@ -1,5 +1,9 @@
 /*
-punkte.c - Schreiben Sie ein Programm, das die Koordinaten von 10 Punkten in der Ebe- ne(siehe Aufgabe 6.1) einliest und in einem Feld speichert Anschließend sollen die Punkte bestimmt werden, die dem Ursprung am nächsten liegen bzw. am weitesten entfernt liegen (wenn dabei mehrere Punkte gleich weit entfernt sind, soll einer davon angegeben werden).
+punkte.c - Schreiben Sie ein Programm, das die Koordinaten von 10 Punkten 
+in der Ebene einliest und in einem Feld speichert Anschließend sollen 
+die Punkte bestimmt werden, die dem Ursprung am nächsten liegen 
+bzw. am weitesten entfernt liegen (wenn dabei mehrere Punkte gleich weit 
+entfernt sind, soll einer davon angegeben werden).
 */
 
 #include <stdio.h>
