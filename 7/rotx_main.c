@@ -2,45 +2,40 @@
 
 int main(int argc, char const *argv[])
 {
-	// Checking for number of arguments
-	if (argc != 3) {
-		printf("Wrong number of arguments.\n");
-		return -1;
-	}
+	int key, length;
+	char *input, *output;
 
 	// Getting key
-	int key = atoi(argv[2]);
-
-	// Getting string
-	int strLen = strlen(argv[1]);
-	char* str = create_string(strLen);
-	strcpy(str, argv[1]);
-
-	// Converting to uppercase
-	str = string_to_upper(str, strLen);
+	key = atoi(argv[2]);
 
 	// Checking for number of arguments
 	if (argc != 3) {
 		printf("Wrong number of arguments.\n");
-		return -1;
-	}
-
-	else if (!argv[1]) {
-		printf("Empty string invalid.");
 		return -1;
 	}
 
 	else if (key <= 0 || key > MAX_CIPHERS) {
 		printf("Entered key (%d) invalid.\n", key);
+		return -1;
 	}
 
-	else {
-		printf("Char value of 3: %d", '3');
-		printf("Cipher: ROT-%d\n", key);
-		printf("Input string: %s\n", str);
-		printf("Output string: %s\n", rotx(str, key));
-	}
+	// Getting string
+	length = strlen(argv[1]);
+	input = create_string(length);
+	strcpy(input, argv[1]);
 
-	free(str);
+	// Converting to uppercase
+	input = string_to_upper(input, length);
+
+	// Applying ROT
+	output = rotx(input, key);
+
+	// Output to terminal
+	printf("Cipher: ROT-%d\n", key);
+	printf("Input string: \"%s\"\n", input);
+	printf("Output string: \"%s\"\n", output);
+
+	free(input);
+	free(output);
 	return 0; 
 }
