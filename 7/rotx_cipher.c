@@ -16,7 +16,7 @@ char* string_to_upper(char* str, int length) {
 	return str;
 }
 
-// Code/Decode a char
+// Return encoded/decoded char
 char code_char(char letter, int key) {
 	if (letter < 65 || letter > 90) {
 		return letter;
@@ -31,13 +31,13 @@ char code_char(char letter, int key) {
 	}
 }
 
-// Cipher
+// Return encoded/decoded string
 char* rotx(char* str, int key) {
 	int length = strlen(str);
 	char* output;
 
 	// Creating empty output string
-	output = malloc((length + 1) * sizeof(char));
+	output = create_string(length);
 	output[length] = '\0';
 
 	for (int i = 0; i < length; i++) {

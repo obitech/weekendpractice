@@ -6,8 +6,8 @@
 #include <stdbool.h>
 
 /* Constants */
-#define ALPHABET_CHARS 	26
-#define MAX_CIPHERS 		25
+#define ALPHABET_CHARS 26
+#define MAX_CIPHERS 25
 
 /* Functions */
 char*		create_string(int length);
