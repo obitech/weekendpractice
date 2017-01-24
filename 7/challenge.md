@@ -17,7 +17,7 @@ __Write a program in C which takes a string and a positive integer value from 0 
 ### I/O
 The initial string and the key should be entered from the command line and your program should print the new string to the terminal:
 ```
-./rotx "Alex" 13
+./rotx "Hello" 13
 Cipher: ROT-13 
 Input String: "Hello"
 Output String: "URYYB"
