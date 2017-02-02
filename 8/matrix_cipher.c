@@ -1,6 +1,6 @@
 #include "matrix_cipher.h"
 
-// Get an
+// Get an integer input
 int get_int() {
    int z;
    scanf("%d", &z);
@@ -67,7 +67,7 @@ int *transformed_chars(char* str, int len) {
    return output;
 }
 
-// Filling a zero matrix with 27 (Space)
+// Filling a matrix with 27 (Space)
 void zero_matrix(int** matrix, int cols, int rows) {
    for (int i = 0; i < cols; i++) {
       for (int j = 0; j < rows; j++) {

@@ -22,6 +22,8 @@ int main() {
    // Encrypting
    if (choice == 1) {
       printf("\nPlease enter plain text string to encode (finish with ENTER):\n");
+
+      // Had to add a ' ' because somehow \n remained in buffer...
       scanf(" %[^\n]%*c", string);
       
       printf("\nPlease enter size (n-by-n) of cipher matrix:\nn = ");
