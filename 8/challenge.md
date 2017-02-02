@@ -55,9 +55,9 @@ To decrypt our decoded message simply multiply the matrix with our **inverted** 
 ```
 Which gets us:
 ```
-[16  7 14  1 27  5 15 14]    [ P G N A _ E O N ]
+[16  7 14  1 27  5 15 14]     [ P G N A _ E O N ]
 | 5 21 19 18 15 27 27  5| --> | E U S R O _ _ E |
-[14  9 27  5 14 20 15 27]    [ N I _ E N T O _ ]
+[14  9 27  5 14 20 15 27]     [ N I _ E N T O _ ]
 ```
 
 ## Tasks
