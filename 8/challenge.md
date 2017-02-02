@@ -64,11 +64,11 @@ Which gets us:
 ### Main
 * Create a program that is able to decode and encode a message using the above described method.
 * Make your program modular with your function definitions outside the main file.
+
 ### Optional
 * Make sure the entered cipher matrix is invertible, if not display an error message an re-prompt the entry.
 * For encoding, let the user choose a different conversion key when transforming plain text into numbers.
 * Let your program take inputs from the command line.
-
 * Offer functionality to import/export parts of your program from/into additional files.
 * Whatever additional functionalities you can think of :) 
 
