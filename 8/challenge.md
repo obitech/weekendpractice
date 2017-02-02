@@ -11,7 +11,7 @@ Take a plain-text message we want to encrypt. In this example we'll choose  ```P
 For our encryption key, we'll create a square (n-by-n) cipher matrix. **This matrix has to be [invertible](https://en.wikipedia.org/wiki/Invertible_matrix "Wikipedia.org - Invertible Matrix")!** For this example we'll use a 3-by-3 matrix:
 ``` 
 [-3 -3 -4]
-| 0  0  1|
+| 0  1  1|
 [ 4  3  4]
 ```
 ### 3. Transform the message into numbers
@@ -37,7 +37,7 @@ Now it's easy to see how our new matrix will look like:
 Now we multiply with our previously chosen cipher matrix:
 ```
 [-3 -3 -4]   [16   7  14   1  27  5   15  14]
-| 0  0  1| * | 5  21  19  18  15  27  27   5|
+| 0  1  1| * | 5  21  19  18  15  27  27   5|
 [ 4  3  4]   [14   9  27   5  14  20  15  27]
 ```
 And get a new matrix containing our encoded cipher text:
@@ -49,7 +49,7 @@ And get a new matrix containing our encoded cipher text:
 ### 6. Decrypt by multiplying with inverse cipher matrix
 To decrypt our decoded message simply multiply the matrix with our **inverted** cipher matrix:
 ```
-[ 1  0  1]   [-119 -120 -207 -77 -182 -176 -186 -166]
+[ 1  0  1]   [-119 -120 -207 -77 -182 -176 -186 -165]
 | 4  4  3| * |  19   30   46  23   29   47   42   32|
 [−4 −3 −3]   [ 135  127  221  78  209  181  201  179]
 ```
