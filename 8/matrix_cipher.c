@@ -1,31 +1,20 @@
 #include "matrix_cipher.h"
 
-// Input integer
+// Get an
 int get_int() {
    int z;
    scanf("%d", &z);
    return z;
 }
 
-int get_string(char *s, int maxlen) {
-   int len;
-
-   s = fgets(s, maxlen , stdin); 
-      if(s == NULL)
-         return 0;
-   len = strlen(s);
-   if (s[len - 1] == '\n')
-      s[--len] = '\0'; // remove line break
-
-   return len; 
-} 
-
+// Transforming all chars in a string to upper case
 void str_to_upper(char *str, int len) {
    for (int i = 0; i < len; i++) {
       str[i] = toupper(str[i]);
    }
 }
 
+// Allocating & return pointer to custom sized 2D matrix
 int** create_custom_2D_matrix(int n, int m) {
    int** array = malloc(n * sizeof(int*));
 
@@ -43,6 +32,7 @@ int** create_custom_2D_matrix(int n, int m) {
    }
 }
 
+// Returning position of c in alphabet
 int char_to_int(char c) {
    if (c <= 90 && c >= 65) {
       return c - 64;
@@ -53,7 +43,7 @@ int char_to_int(char c) {
    }
 }
 
-// Print array
+// Printing an array
 void print_array(int* array, int size) {
    printf("[");
    for (int i = 0; i < size; i++) {
@@ -66,6 +56,7 @@ void print_array(int* array, int size) {
    printf("]\n");
 }
 
+// Create an array with position of chars in alphabet
 int *transformed_chars(char* str, int len) {
    int *output = malloc(len * sizeof(int));
 
@@ -76,14 +67,16 @@ int *transformed_chars(char* str, int len) {
    return output;
 }
 
-void zero_matrix(int** matrix, int m, int n) {
-   for (int i = 0; i < m; i++) {
-      for (int j = 0; j < n; j++) {
+// Filling a zero matrix with 27 (Space)
+void zero_matrix(int** matrix, int cols, int rows) {
+   for (int i = 0; i < cols; i++) {
+      for (int j = 0; j < rows; j++) {
          matrix[i][j] = 27;
       }
    }
 }
 
+// Printing a 2D matrix
 void print_custom_2D_matrix(int** matrix, int n, int m) {
    printf("\n");
    for (int i = 0; i < n; i++) {
@@ -95,10 +88,11 @@ void print_custom_2D_matrix(int** matrix, int n, int m) {
    }  
 }
 
-void fill_matrix_with_array(int** matrix, int* array, int rows, int cols, int len) {
+// Translating an array into a matrix, returning pointer to matrix
+void fill_matrix_with_array(int** matrix, int* array, int cols, int rows, int len) {
    int m = 0;
-   for (int i = 0; i < cols; i++) {
-      for (int j = 0; j < rows; j++) {
+   for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
          matrix[j][i] = array[m];
          m++;
          if (m >= len) {
@@ -106,80 +100,68 @@ void fill_matrix_with_array(int** matrix, int* array, int rows, int cols, int le
          }
       }
    }
+
+   return;
 }
 
-int sum_of_values_matrices(int **m1, int **m2, int row, int col, int n) {
-   int sum = 0;
-
-   for (int i = 0; i < n; i++) {
-      sum += m1[row][i] * m2[i][col];
-   }
-
-   return sum;
-}
-
+/**
+ * Multiplies m1 and m2 and saves new values in m3
+ * The reason why I don't allocate/return a new matrix in this function is because
+ * we need to fill up m3 with 27's beforehand
+ * */
 void multiply_matrices(int** m3, int** m1, int** m2, int cols, int rows) {
    int sum = 0;
    for (int i = 0; i < cols; i++) {
       for (int j = 0; j < rows; j++) {
          for (int k = 0; k < 3; k++) {
-            printf("%d * %d = %d\n",m2[i][k], m1[k][j], m2[i][k] * m1[k][j]);
             sum += m2[i][k] * m1[k][j];
          }
-         printf("sum = %d\n", sum);
          m3[i][j] = sum;
          sum = 0;
       }
    }
 }
 
-void fill_custom_2d_matrix(int **matrix, int cols, int rows) {
+// Fills 2D matrix with values
+void fill_custom_2D_matrix(int **matrix, int cols, int rows) {
    for (int i = 0; i < cols; i++) {
       for (int j = 0; j < rows; j++) {
-         printf("(%d/%d): ", i, j);
+         printf("(%d/%d): ", i + 1, j + 1);
          matrix[i][j] = get_int();
       }
    }
 }
 
-char *encode() {
-   int max_len, str_len, rows;
-   int *transformed_char_array, **encoded_matrix, **cipher_matrix, **encoded_matrix_final;
-   char *start_str;
+int **encode(char *start_str, int **cipher_matrix, int n) {
+   int str_len, rows;
+   int *transformed_char_array, **numbers_matrix, **encoded_matrix;
 
-   printf("String:\n");
-   max_len = 100;
-   start_str = malloc(max_len * sizeof(char));
-   scanf("%[^\n]%*c", start_str);
    str_len = strlen(start_str);
+
+   // Converting all chars to upper case
    str_to_upper(start_str, str_len);
 
-   printf("Enter cipher matrix:\n");
-   cipher_matrix = create_custom_2D_matrix(3, 3);
-   fill_custom_2d_matrix(cipher_matrix, 3, 3);
-   print_custom_2D_matrix(cipher_matrix, 3, 3);
-
+   // Convert chars to numbers and fill array with them
    transformed_char_array = transformed_chars(start_str, str_len);
+ 
+   // Number of rows in our output matrix
+   rows = ceil(str_len / (double)n);
 
-   rows = ceil(str_len / 3.0);
+   // Allocating memory for numbers matrix, rest will be filled up with 27 (SPACE)
+   numbers_matrix = create_custom_2D_matrix(n, rows);
+   zero_matrix(numbers_matrix, n, rows);
+   fill_matrix_with_array(numbers_matrix, transformed_char_array, n, rows, str_len);
 
-   encoded_matrix = create_custom_2D_matrix(3, rows);
-   zero_matrix(encoded_matrix, 3, rows);
+   // Allocating memory for output matrix
+   encoded_matrix = create_custom_2D_matrix(n, rows);
+   zero_matrix(encoded_matrix, n, rows);
 
-   encoded_matrix_final = create_custom_2D_matrix(3, rows);
-   zero_matrix(encoded_matrix_final, 3, rows);
+   // Multiplying numbers matrix with cipher matrix
+   multiply_matrices(encoded_matrix, numbers_matrix, cipher_matrix, n, rows);
 
-   fill_matrix_with_array(encoded_matrix, transformed_char_array, 3, rows, str_len);
-   print_custom_2D_matrix(encoded_matrix, 3, 3);
-
-   multiply_matrices(encoded_matrix_final, encoded_matrix, cipher_matrix, 3, rows);
-
-   print_custom_2D_matrix(encoded_matrix_final, 3, rows);
-
-   free(encoded_matrix);
-   free(cipher_matrix);
+   free(numbers_matrix);
    free(transformed_char_array);
-   return start_str;
+
+   return encoded_matrix;
 }
 
-//PENGUINS ARE ONE TO ONE

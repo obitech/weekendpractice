@@ -5,4 +5,7 @@
 #include <math.h>
 
 int get_int();
-char *encode();
+int **encode(char* string, int** cipher_matrix, int n);
+int** create_custom_2D_matrix(int rows, int cols);
+void fill_custom_2D_matrix(int** matrix, int rows, int cols);
+void print_custom_2D_matrix(int** matrix, int rows, int cols);
