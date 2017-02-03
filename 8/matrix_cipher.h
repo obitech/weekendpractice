@@ -37,3 +37,6 @@ void overwrite_string(char* string);
 
 // Overwrites a matrix with 27 and frees the pointer afterwards
 void overwrite_matrix(int** matrix, int cols, int rows);
+
+// Return determinant of n by n matrix
+int determinant(int **matrix, int n);

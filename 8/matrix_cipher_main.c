@@ -37,11 +37,17 @@ ENCRYPTING:
          scanf(" %[^\n]%*c", string);
          
          // Only implemented 3-by-3 matrix operations
-         printf("Please enter 3-by-3 cipher matrix:\n");
-         n = 3;
+         printf("Enter dimension of cipher matrix (n by n):\nn = ");
+         n = get_int();
 
          cipher_matrix = create_custom_2D_matrix(n, n);
          fill_custom_2D_matrix(cipher_matrix, n, n);
+
+         if (determinant(cipher_matrix, n) == 0) {
+            printf("Error, cipher matrix is not invertible.\n");
+            free(cipher_matrix);
+            goto ENCRYPTING;
+         }
 
          printf("\nEntered cipher matrix:\n");
          print_custom_2D_matrix(cipher_matrix, n, n);
