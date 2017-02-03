@@ -49,7 +49,7 @@ And get a new matrix containing our encoded cipher text:
 ### 6. Decrypt by multiplying with inverse cipher matrix
 To decrypt our decoded message simply multiply the matrix with our **inverted** cipher matrix:
 ```
-[ 1  0  1]   [-119 -120 -207 -77 -182 -176 -186 -165]
+[ 1  0  1]   [-119 -120 -207 -77 -182 -176 -186 -166]
 | 4  4  3| * |  19   30   46  23   29   47   42   32|
 [−4 −3 −3]   [ 135  127  221  78  209  181  201  179]
 ```

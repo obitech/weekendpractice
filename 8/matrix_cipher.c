@@ -104,6 +104,20 @@ void fill_matrix_with_array(int** matrix, int* array, int cols, int rows, int le
    return;
 }
 
+// Overwrites and frees a string
+void overwrite_string(char* string) {
+   char garbage_string[100] = {0};
+   strncpy(string, garbage_string, 100);
+   //free(string);
+}
+
+// Overwrites a matrix with 27 and frees the pointer afterwards
+void overwrite_matrix(int** matrix, int cols, int rows) {
+   zero_matrix(matrix, cols, rows);
+   free(matrix);
+
+}
+
 /**
  * Multiplies m1 and m2 and saves new values in m3
  * The reason why I don't allocate/return a new matrix in this function is because
@@ -132,7 +146,8 @@ void fill_custom_2D_matrix(int **matrix, int cols, int rows) {
    }
 }
 
-int **encode(char *start_str, int **cipher_matrix, int n) {
+encrypted encode(char *start_str, int **cipher_matrix, int n) {
+   encrypted output;
    int str_len, rows;
    int *transformed_char_array, **numbers_matrix, **encoded_matrix;
 
@@ -144,6 +159,10 @@ int **encode(char *start_str, int **cipher_matrix, int n) {
    // Convert chars to numbers and fill array with them
    transformed_char_array = transformed_chars(start_str, str_len);
  
+   // Overwriting and deleting start_str
+   overwrite_string(start_str);
+   printf("s: %s\n", start_str);
+
    // Number of rows in our output matrix
    rows = ceil(str_len / (double)n);
 
@@ -153,15 +172,25 @@ int **encode(char *start_str, int **cipher_matrix, int n) {
    fill_matrix_with_array(numbers_matrix, transformed_char_array, n, rows, str_len);
 
    // Allocating memory for output matrix
-   encoded_matrix = create_custom_2D_matrix(n, rows);
-   zero_matrix(encoded_matrix, n, rows);
+   //encoded_matrix = create_custom_2D_matrix(n, rows);
+   //zero_matrix(encoded_matrix, n, rows);
+
+   output.message = create_custom_2D_matrix(n, rows);
+   zero_matrix(output.message, n, rows);
 
    // Multiplying numbers matrix with cipher matrix
-   multiply_matrices(encoded_matrix, numbers_matrix, cipher_matrix, n, rows);
+   multiply_matrices(output.message, numbers_matrix, cipher_matrix, n, rows);
+
+   output.rows = rows;
+   output.cols = n;
+   output.encoded = 1;
 
    free(numbers_matrix);
    free(transformed_char_array);
 
-   return encoded_matrix;
+   return output;
 }
 
+/*char *decode(encrypted encoded_message, int **cipher_matrix) {
+   
+}*/
