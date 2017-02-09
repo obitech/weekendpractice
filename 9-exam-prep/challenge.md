@@ -23,7 +23,7 @@ Length of _s_ is at most 50.
 Output the first in alphabetical order word, that could be written on the paper, found by CJ-17.
 
 
-#### Example:
+### Example:
 ```
 Input: ?ba??b 
 Output: ababab
@@ -60,7 +60,7 @@ You will be given two dimensions
 
 You will return an array with the size of each of the squares.
 
-#### Examples:
+### Examples:
 
 ```
 sqInRect(5, 5) should return {}  
@@ -78,7 +78,7 @@ You are given a string as an input which will contain the 2 coordinates in this 
 
 Your goal is to find out the number of different paths you can take to get from point A to point B by moving one space at a time either down or right.
 
-##### Example:
+#### Example:
 ```
 [  x,  x,  x,  x,  x,  x,  x,  x],
 [  x,  x,  x,  x,  x,  x,  x,  x],
