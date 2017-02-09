@@ -1,0 +1,3 @@
+//abstand.c - Entwerfen Sie eine Datenstruktur, die die Koordinaten eines Punktes in der Ebene speichern kann. Schreiben Sie ein Programm, das die Koordinaten zweiter Punkte einliest und deren Abstand berechnet.
+
+// punkte.c - Schreiben Sie ein Programm, das die Koordinaten von 10 Punkten in der Ebe- ne(siehe Aufgabe 6.1) einliest und in einem Feld speichert. Anschließend sollen die Punkte bestimmt werden, die dem Ursprung am nächsten liegen bzw. am weitesten entfernt liegen (wenn dabei mehrere Punkte gleich weit entfernt sind, soll einer davon angegeben werden).

@@ -1,0 +1,62 @@
+/* -- Info1: 3.1 - 3.6 -- */
+
+1) betrag.cpp - Schreiben Sie ein Programm, das eine Zahl x einliest und deren absoluten Betrag ausgibt.  
+
+2) groesstezahl.cpp - Schreiben Sie ein Programm, das drei Zahlen einliest und die größte wieder ausgibt.  
+
+3) soriteren.cpp - Schreiben Sie ein Programm, das drei Zahlen einliest und aufsteigend sortiert wieder ausgibt.  
+
+4) gerade.cpp - Schreiben Sie ein Programm, das zwei Zahlen einliest und bestimmt, ob mindestens eine davon durch 2 teilbar ist.
+
+/* -- Pointers -- */
+
+5) basic_pointers.c - Write a program in C to demonstrate how to handle the pointers in the program.
+	// Expected output: 
+	Address of m : 0x7ffcc3ad291c
+ 	Value of m : 29                                                                                              
+                                                                                                              
+ 	Now ab is assigned with the address of m.                                                                    
+ 	Address of pointer ab : 0x7ffcc3ad291c                                                                       
+ 	Content of pointer ab : 29                                                                                   
+                                                                                                              
+ 	The value of m assigned to 34 now.                                                                           
+ 	Address of pointer ab : 0x7ffcc3ad291c                                                                       
+ 	Content of pointer ab : 34                                                                                   
+                                                                                                              
+ 	The pointer variable ab is assigned with the value 7 now.                                                    
+	Address of m : 0x7ffcc3ad291c                                                                                
+ 	Value of m : 7 
+
+6) address_value_pointers.c - Write a program in C to demonstrate the use of &(address of) and *(value at address) operator.
+	// Expected output: 
+	Using & operator :                                                                                           
+	-----------------------                                                                                       
+ 	address of m = 0x7ffea3610bb8                                                                                
+ 	address of fx = 0x7ffea3610bbc                                                                               
+ 	address of cht = 0x7ffea3610bb7                                                                              
+                                                                                                              
+ 	Using & and * operator :                                                                                     
+	-----------------------------                                                                                 
+ 	value at address of m = 300                                                                                  
+ 	value at address of fx = 300.600006                                                                          
+ 	value at address of cht = z                                                                                  
+                                                                                                              
+ 	Using only pointer variable :                                                                                
+	----------------------------------                                                                            
+ 	address of m = 0x7ffea3610bb8                                                                                
+ 	address of fx = 0x7ffea3610bbc                                                                               
+ 	add	ress of cht = 0x7ffea3610bb7                                                                              
+                                                                                                              
+ 	Using only pointer operator :                                                                                
+	----------------------------------                                                                            
+ 	value at address of m = 300                                                                                  
+ 	val	ue at address of fx= 300.600006                                                                           
+ 	value at address of cht= z 
+
+7) sum_pointers.c - Write a program in C to add two numbers using pointers. 
+	// Expected Output:
+	The sum of a = ... and b = ... is: ...
+
+8) max_pointers.c - Write a program in C to find the maximum number between two numbers using pointer. 
+	// Expected Output:
+	... is the maximum number.
