@@ -20,14 +20,6 @@ int value(int number) {
       }
    }
 
-/*   else if (number % 100 == 0) {
-      if (number == 1000) {
-         return 8;
-      }
-
-      return  8 + value(number / 100);
-   }*/
-
    else if (number > 100 && number < 1000) {
       if (number % 100 == 0) {
          return 7 + value(number / 100) + value(number % 100);
@@ -86,8 +78,13 @@ int main(int argc, char const *argv[]) {
 
    int number = atoi(argv[1]);
 
+   if (number < 0 || number > 1000) {
+      printf("Number must be between 1 and 1000.\n");
+      return 1;
+   }
+
    long count = count1(number);
-   printf("count = %ld\n", count);
+   printf("Letter count of all numbers between 1 and %d = %ld\n", number, count);
 
    return 0;
 }
