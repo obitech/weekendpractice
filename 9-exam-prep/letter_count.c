@@ -8,9 +8,9 @@ int value(int number) {
    if (number > 20 && number < 100) {
       int comp = number;
       switch(comp / 10) {
-         case 2: return 7 + value(number % 10);
+         case 2: return 6 + value(number % 10);  
          case 3: return 6 + value(number % 10);
-         case 4: return 6 + value(number % 10);
+         case 4: return 5 + value(number % 10);
          case 5: return 5 + value(number % 10);
          case 6: return 5 + value(number % 10);
          case 7: return 7 + value(number % 10);
@@ -29,7 +29,12 @@ int value(int number) {
    }*/
 
    else if (number > 100 && number < 1000) {
-      return 10 + value(number / 100) + value(number % 100);
+      if (number % 100 == 0) {
+         return 7 + value(number / 100) + value(number % 100);
+      }
+      else {
+         return 10 + value(number / 100) + value(number % 100);
+      }
    }
 
    else {
@@ -54,16 +59,9 @@ int value(int number) {
          case 17: return 9;
          case 18: return 8;
          case 19: return 8;
-         case 20: return 7;
-/*         case 30: return 6;
-         case 40: return 7;
-         case 50: return 7;
-         case 60: return 5;
-         case 70: return 7;
-         case 80: return 6;
-         case 90: return 6;*/
-         case 100: return 7;
-         case 1000: return 8;
+         case 20: return 6;
+         case 100: return 10;
+         case 1000: return 11;
          default: return 0;
       }
    }
