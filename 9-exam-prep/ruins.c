@@ -3,6 +3,22 @@
 #include <string.h>
 
 void print_string(const char* str) {
+   /*
+    * Please be advised, the call to strlen(str), being placed in the condition block
+    * of the for-loop, will be evaluated on each iteration. 
+    *
+    * This will produce an O(n^2) complexity for the function. Recommended changes:
+    *
+    * for (size_t i = 0, len = strlen(str); i < len; ++i) { 
+    *    // ...
+    * }
+    *
+    * Here the O(n) strlen(str) will only be called once and will fix the O(n^2)
+    * complexity.
+    *
+    * Sorry, didn't mean to look bossy, but that mistake can be quite subtle and
+    * a bugger to find in code.
+    */
    for (int i = 0; i < strlen(str); i++) {
       if (str[i] ==  '?') {
          if (str[i + 1]  ==  'a' || str[i - 1] == 'a') {
