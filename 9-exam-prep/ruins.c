@@ -19,7 +19,7 @@ void print_string(const char* str) {
     * Sorry, didn't mean to look bossy, but that mistake can be quite subtle and
     * a bugger to find in code.
     */
-   int len = strlen(str)
+   int len = strlen(str);
    for (int i = 0; i < len; i++) {
       if (str[i] ==  '?') {
          if (str[i + 1]  ==  'a' || str[i - 1] == 'a') {
