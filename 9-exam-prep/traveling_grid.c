@@ -17,7 +17,7 @@ void find_ways(int x1, int y1, int x2, int y2, int *result) {
 
    if (y1 < y2) {
       find_ways(x1, y1 + 1, x2, y2, result);
-   }
+   }xxxxxxxxxx
 }
 
 int main(int argc, char const *argv[])
